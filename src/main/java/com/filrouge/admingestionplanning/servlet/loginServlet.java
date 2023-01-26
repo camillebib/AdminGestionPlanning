@@ -1,6 +1,6 @@
-package com.ajc.projet.servlet;
+package com.filrouge.admingestionplanning.servlet;
 
-import com.ajc.projet.dao.factory.UserDAO;
+import com.filrouge.admingestionplanning.dao.factory.UserDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/login")
+@WebServlet(urlPatterns = "/login")
 public class loginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDAO loginDao;
@@ -29,17 +29,16 @@ public class loginServlet extends HttpServlet {
         try {
             authenticate(request, response);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     private void authenticate(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String username = request.getParameter("username");
+        String pseudo = request.getParameter("pseudo");
         String password = request.getParameter("password");
 
-        if (loginDao.validate(username, password)) {
+        if (loginDao.validate(pseudo, password)) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");
             dispatcher.forward(request, response);
         } else {

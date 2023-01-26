@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dcbedfb-3cbf-4c44-97a5-e35e25d97ec6" name="Changes" comment="Update Admin/SuperAdmin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/factory/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/factory/JPAUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/factory/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ajc/projet/servlet/loginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login-success.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+    <list default="true" id="0dcbedfb-3cbf-4c44-97a5-e35e25d97ec6" name="Changes" comment="Ajout de la DAO, du loginServlet et des jsp de login">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/factory/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/factory/JPAUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/JPAUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajc/projet/dao/factory/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajc/projet/servlet/loginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/servlet/loginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +90,7 @@
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="contextPath" value="/projetFilRouge" />
+      <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="envOptions">
         <map />
@@ -158,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674740896217</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Ajout de la DAO, du loginServlet et des jsp de login">
+      <created>1674745875341</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674745875341</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -195,6 +204,22 @@
     <MESSAGE value="Ajout des entités Admin et SuperAdmin" />
     <MESSAGE value="Update User" />
     <MESSAGE value="Update Admin/SuperAdmin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Admin/SuperAdmin" />
+    <MESSAGE value="Ajout de la DAO, du loginServlet et des jsp de login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la DAO, du loginServlet et des jsp de login" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/UserDAO.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

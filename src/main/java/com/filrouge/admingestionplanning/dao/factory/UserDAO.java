@@ -1,10 +1,11 @@
-package com.ajc.projet.dao.factory;
+package com.filrouge.admingestionplanning.dao.factory;
 
-import com.ajc.projet.dao.entities.User;
+import com.filrouge.admingestionplanning.dao.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transaction;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,22 +108,23 @@ public class UserDAO implements Dao<User> {
 
     public boolean validate(String pseudo, String password) {
 
-        EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
-        EntityTransaction et = em.getTransaction();
-
+        Transaction transaction = null;
         User user = null;
-        et.begin();
-        try {
-            user = (User) em.createQuery("FROM User U WHERE U.pseudo = :pseudo").setParameter("pseudo", pseudo).getSingleResult();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+            user = (User) session.createQuery("FROM User U WHERE U.pseudo = :pseudo").setParameter("pseudo", pseudo)
+                    .uniqueResult();
 
             if (user != null && user.getPassword().equals(password)) {
                 return true;
             }
             // commit transaction
-            et.commit();
+            transaction.commit();
         } catch (Exception e) {
-            if (et.isActive()) {
-                et.rollback();
+            if (transaction != null) {
+                transaction.rollback();
             }
             e.printStackTrace();
         }

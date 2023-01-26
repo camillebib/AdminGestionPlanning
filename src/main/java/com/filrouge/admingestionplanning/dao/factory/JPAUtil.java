@@ -1,4 +1,4 @@
-package com.ajc.projet.dao.factory;
+package com.filrouge.admingestionplanning.dao.factory;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

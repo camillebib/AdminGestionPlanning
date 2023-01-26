@@ -1,4 +1,4 @@
-package com.ajc.projet.dao.entities;
+package com.filrouge.admingestionplanning.dao.entities;
 
 import jakarta.persistence.*;
 
