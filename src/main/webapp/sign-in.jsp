@@ -24,7 +24,7 @@
             </div>
             <div class="mb-3">
               <label for="userEmail">Email</label>
-              <input id="userEmail" type="email" name="userEmail" class="form-control" required="required">
+              <input id="userEmail" type="email" name="userEmail" class="form-control" placeholder="exemple@mail.com" required="required">
             </div>
             <div class="mb-3">
               <label for="userNom">Nom</label>

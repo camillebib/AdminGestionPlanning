@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9add404a-ba3f-4c51-877f-b7b2d725e3cc" name="Changes" comment="Ajout du sign-in et correction de bugs">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sign-in-success.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/servlet/signInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/servlet/signInServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sing-in-success.jsp" beforeDir="false" />
+    <list default="true" id="9add404a-ba3f-4c51-877f-b7b2d725e3cc" name="Changes" comment="Redirection après sign-in-success">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign-in.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sign-in.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674823974838</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Redirection après sign-in-success">
+      <created>1674825926644</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674825926644</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +117,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ajout du sign-in et correction de bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du sign-in et correction de bugs" />
+    <MESSAGE value="Redirection après sign-in-success" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redirection après sign-in-success" />
   </component>
 </project>
