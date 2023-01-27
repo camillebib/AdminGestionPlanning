@@ -16,7 +16,7 @@ public class signInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        req.getRequestDispatcher("/WEB-INF/sign-in.jsp").forward(req, resp);
+        resp.sendRedirect("sign-in.jsp");
     }
 
     @Override

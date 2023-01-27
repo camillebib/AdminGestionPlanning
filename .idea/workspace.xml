@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9add404a-ba3f-4c51-877f-b7b2d725e3cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/servlet/signInServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sign-in.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/sing-in-success.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9add404a-ba3f-4c51-877f-b7b2d725e3cc" name="Changes" comment="Ajout du sign-in et correction de bugs">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sign-in-success.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/JPAUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/JPAUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/dao/factory/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/servlet/signInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filrouge/admingestionplanning/servlet/signInServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/sing-in-success.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +91,29 @@
       <option name="presentableId" value="Default" />
       <updated>1674822476640</updated>
     </task>
+    <task id="LOCAL-00001" summary="Ajout du sign-in et correction de bugs">
+      <created>1674823974838</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674823974838</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ajout du sign-in et correction de bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du sign-in et correction de bugs" />
   </component>
 </project>
