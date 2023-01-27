@@ -19,6 +19,16 @@ public class User {
 
     public User(){}
 
+    public User(int type, String pseudo, String email, String nom, String prenom, String password, String img) {
+        this.type = type;
+        this.pseudo = pseudo;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.img = img;
+    }
+
     public Long getId() {
         return id;
     }
