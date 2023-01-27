@@ -33,6 +33,27 @@ public class UserDAO implements Dao<User> {
     }
 
     @Override
+    public Optional<User> get(String pseudo) {
+        Optional<User> result = Optional.empty();
+        EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            result = Optional.of(em.createQuery(
+                    "SELECT u from User u WHERE u.pseudo = :pseudo", User.class).
+                    setParameter("pseudo", pseudo).getSingleResult());
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
+
+    @Override
     public List<User> getAll() {
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction et = em.getTransaction();

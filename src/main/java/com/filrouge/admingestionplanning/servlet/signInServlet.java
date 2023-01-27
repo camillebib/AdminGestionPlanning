@@ -29,10 +29,15 @@ public class signInServlet extends HttpServlet {
         String password = req.getParameter("userPassword");
 
         User user = new User(0, pseudo, email, nom, prenom, password, "");
-        Dao<User> UserDAO = new UserDAO();
-        UserDAO.create(user);
+        Dao<User> userDao = new UserDAO();
 
-        resp.sendRedirect(req.getContextPath() + "/sign-in-success.jsp");
+        if (userDao.get(pseudo).isEmpty()){
+            userDao.create(user);
+
+            resp.sendRedirect(req.getContextPath() + "/sign-in-success.jsp");
+        }else{
+            throw new ServletException("User already exists");
+        }
 
     }
 
