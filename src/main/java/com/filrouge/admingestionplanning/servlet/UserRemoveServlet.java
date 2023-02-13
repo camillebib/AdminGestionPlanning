@@ -1,4 +1,4 @@
-package com.ajc.pastries.servlet;
+package com.filrouge.admingestionplanning.servlet;
 
 import com.filrouge.admingestionplanning.dao.entities.User;
 import com.filrouge.admingestionplanning.dao.factory.UserDAO;
