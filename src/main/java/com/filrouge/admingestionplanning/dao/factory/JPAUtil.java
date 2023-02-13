@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class JPAUtil {
-    private static final String PERSISTENCE_UNIT_NAME = "persistence-unit";
+    private static final String PERSISTENCE_UNIT_NAME = "pu";
     private static EntityManagerFactory factory;
 
     public static EntityManagerFactory getEntityManagerFactory() {
