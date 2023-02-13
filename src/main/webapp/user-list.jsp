@@ -20,6 +20,9 @@
                     <form action="${pageContext.request.contextPath}/remove-user" method="post">
                         <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Remove</button>
                     </form>
+                    <form action="${pageContext.request.contextPath}/user-details" method="post">
+                        <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Update</button>
+                    </form>
                 </div>
             </div><br>
         </c:forEach>
