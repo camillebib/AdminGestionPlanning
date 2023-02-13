@@ -17,7 +17,7 @@
                     <p class="card-text">${user.prenom}</p>
                     <p class="card-text">${user.email}</p>
                     <p class="card-text">${user.type}</p>
-                    <form action="${pageContext.request.contextPath}/remove-pastry" method="post">
+                    <form action="${pageContext.request.contextPath}/remove-user" method="post">
                         <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Remove</button>
                     </form>
                 </div>
