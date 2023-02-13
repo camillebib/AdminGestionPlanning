@@ -17,7 +17,20 @@ public class User {
     private String password;
     private String img;
 
+    public User(int type, String pseudo, String email, String nom, String prenom, String password, String img) {
+        this.type = type;
+        this.pseudo = pseudo;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.img = img;
+    }
+
     public User(){}
+
+    public User(String name, String firstName, String email, String password, String image, String pseudo, String type) {
+    }
 
     public Long getId() {
         return id;
