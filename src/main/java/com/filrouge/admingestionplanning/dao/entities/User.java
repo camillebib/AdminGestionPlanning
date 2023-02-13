@@ -8,24 +8,14 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "type")
     private int type; //type 0 = User, type 1 = Admin, type 2 = SuperAdmin
-    @Column(name = "pseudo")
     private String pseudo;
-    @Column(name = "email")
     private String email;
-    @Column(name = "nom")
     private String nom;
-    @Column(name = "prenom")
     private String prenom;
-    @Column(name = "password")
     private String password;
-    @Column(name = "img")
     private String img;
-
-    public User(){}
 
     public User(int type, String pseudo, String email, String nom, String prenom, String password, String img) {
         this.type = type;
@@ -35,6 +25,11 @@ public class User {
         this.prenom = prenom;
         this.password = password;
         this.img = img;
+    }
+
+    public User(){}
+
+    public User(String name, String firstName, String email, String password, String image, String pseudo, String type) {
     }
 
     public Long getId() {
