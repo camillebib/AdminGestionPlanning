@@ -27,6 +27,10 @@
               <input id="userEmail" type="email" name="userEmail" class="form-control" required="required" value="${user.email}">
             </div>
             <div class="mb-3">
+              <label for="userImg">Image</label>
+              <input id="userImg" type="text" name="userImg" class="form-control" value="${user.img}">
+            </div>
+            <div class="mb-3">
               <label for="userNom">Nom</label>
               <input id="userNom" type="text" name="userNom" class="form-control" required="required" value="${user.nom}">
             </div>
@@ -37,6 +41,10 @@
             <div class="mb-3">
               <label for="userType">Type</label>
               <input id="userType" type="number" name="userType" class="form-control" required="required" value="${user.type}">
+            </div>
+            <div class="mb-3">
+              <label for="userPassword">Password</label>
+              <input id="userPassword" type="password" name="userPassword" class="form-control" required="required" value="${user.password}">
             </div>
 
             <div class="mb-3 text-end">

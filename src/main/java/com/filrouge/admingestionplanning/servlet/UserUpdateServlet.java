@@ -28,12 +28,14 @@ public class UserUpdateServlet extends HttpServlet {
         String nom = req.getParameter("userNom");
         String prenom = req.getParameter("userPrenom");
         String typeStr = req.getParameter("userType");
+        String password = req.getParameter("userPassword");
+        String img = req.getParameter("userImg");
 
         try {
             Long id = Long.parseLong(idStr);
             int type = Integer.parseInt(typeStr);
-            User user = new User(type, pseudo, email, nom, prenom);
-            Dao<User> userDao = new UserDAO();
+            User user = new User(id, type, pseudo, email, nom, prenom, password, img);
+            UserDAO userDao = new UserDAO();
 
             if (userDao.get(id).isPresent()) {
                 userDao.update(user);

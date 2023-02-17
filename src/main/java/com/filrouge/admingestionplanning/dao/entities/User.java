@@ -27,12 +27,15 @@ public class User {
         this.img = img;
     }
 
-    public User(int type, String pseudo, String email, String nom, String prenom) {
+    public User(Long id, int type, String pseudo, String email, String nom, String prenom, String password, String img) {
+        this.id = id;
         this.type = type;
         this.pseudo = pseudo;
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
+        this.password = password;
+        this.img = img;
     }
 
     public User(){}
