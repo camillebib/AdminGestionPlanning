@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(urlPatterns = "/user-details/")
+@WebServlet(urlPatterns = "/user-details")
 public class UserDisplayServlet extends HttpServlet {
 
     @Override
@@ -27,10 +27,10 @@ public class UserDisplayServlet extends HttpServlet {
         try {
             Long id = Long.parseLong(idStr);
             UserDAO dao = new UserDAO();
-            Optional<User> user = dao.get(id);
+            Optional<User> userOptional = dao.get(id);
 
-            if (user.isPresent()) {
-                req.setAttribute("user", user);
+            if (userOptional.isPresent()) {
+                req.setAttribute("user", userOptional.get());
                 req.getRequestDispatcher("/user-details.jsp").forward(req, resp);
             }
 
