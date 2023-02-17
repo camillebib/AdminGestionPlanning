@@ -17,30 +17,30 @@
     <div class="col-8 offset-2 mt-3">
       <div class="card">
         <div class="card-body">
-          <form action="${pageContext.request.contextPath}/sign-in" method="post">
+          <form action="${pageContext.request.contextPath}/update-user" method="post">
             <div class="mb-3">
               <label for="userPseudo">Pseudo</label>
-              <input id="userPseudo" type="text" name="userPseudo" class="form-control" required="required" placeholder="${user.pseudo}">
+              <input id="userPseudo" type="text" name="userPseudo" class="form-control" required="required" value="${user.pseudo}">
             </div>
             <div class="mb-3">
               <label for="userEmail">Email</label>
-              <input id="userEmail" type="email" name="userEmail" class="form-control" placeholder="exemple@mail.com" required="required" placeholder="${user.email}">
+              <input id="userEmail" type="email" name="userEmail" class="form-control" required="required" value="${user.email}">
             </div>
             <div class="mb-3">
               <label for="userNom">Nom</label>
-              <input id="userNom" type="text" name="userNom" class="form-control" required="required" placeholder="${user.nom}">
+              <input id="userNom" type="text" name="userNom" class="form-control" required="required" value="${user.nom}">
             </div>
             <div class="mb-3">
               <label for="userPrenom">Prenom</label>
-              <input id="userPrenom" type="text" name="userPrenom" class="form-control" required="required" placeholder="${user.prenom}">
+              <input id="userPrenom" type="text" name="userPrenom" class="form-control" required="required" value="${user.prenom}">
             </div>
             <div class="mb-3">
-              <label for="userType">Prenom</label>
-              <input id="userType" type="number" name="userType" class="form-control" required="required" placeholder="${user.type}">
+              <label for="userType">Type</label>
+              <input id="userType" type="number" name="userType" class="form-control" required="required" value="${user.type}">
             </div>
 
             <div class="mb-3 text-end">
-              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Update</button>
             </div>
           </form>
         </div>

@@ -27,6 +27,14 @@ public class User {
         this.img = img;
     }
 
+    public User(int type, String pseudo, String email, String nom, String prenom) {
+        this.type = type;
+        this.pseudo = pseudo;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     public User(){}
 
     public User(String name, String firstName, String email, String password, String image, String pseudo, String type) {
