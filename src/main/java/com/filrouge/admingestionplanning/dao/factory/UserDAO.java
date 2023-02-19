@@ -4,6 +4,7 @@ import com.filrouge.admingestionplanning.dao.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
+import jakarta.servlet.http.HttpServletRequest;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -60,7 +61,7 @@ public class UserDAO implements Dao<User> {
         List<User> users = new ArrayList<>();
         et.begin();
         try {
-            TypedQuery<User> usersQuery = em.createQuery("SELECT u FROM User u", User.class);
+            TypedQuery<User> usersQuery = em.createQuery("SELECT u FROM User u WHERE u.type != 2", User.class);
             users = usersQuery.getResultList();
             et.commit();
         } catch (Exception e) {
@@ -127,7 +128,7 @@ public class UserDAO implements Dao<User> {
 
     }
 
-    public boolean validate(String pseudo, String password) {
+    public boolean validate(String pseudo, String password, HttpServletRequest request) {
 
         Transaction transaction = null;
         User user = null;
@@ -139,6 +140,7 @@ public class UserDAO implements Dao<User> {
                     .uniqueResult();
 
             if (user != null && user.getPassword().equals(password)) {
+                request.getSession().setAttribute("user", user);
                 return true;
             }
             // commit transaction

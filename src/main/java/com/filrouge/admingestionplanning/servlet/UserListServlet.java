@@ -16,12 +16,17 @@ public class UserListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User connectedUser = (User) req.getSession().getAttribute("user");
+        if (connectedUser == null || connectedUser.getType() == 0){
+            resp.sendRedirect("login.jsp");
+            return;
+        }
         UserDAO dao = new UserDAO();
         List<User> userList = dao.getAll();
 
         req.setAttribute("users", userList);
-
         req.getRequestDispatcher("/user-list.jsp").forward(req, resp);
+
     }
 
     @Override
