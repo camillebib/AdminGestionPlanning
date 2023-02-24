@@ -40,7 +40,10 @@
             </div>
             <div class="mb-3">
               <label for="userType">Type</label>
-              <input id="userType" type="number" name="userType" class="form-control" required="required" value="${user.type}">
+              <select id="userType" type="number" name="userType" class="form-control" required="required">
+                  <option value="1">User</option>
+                  <option value="2">Admin</option>
+              </select>
             </div>
             <div class="mb-3">
               <label for="userPassword">Password</label>

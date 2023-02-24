@@ -16,7 +16,9 @@
                     <p class="card-text">${user.nom}</p>
                     <p class="card-text">${user.prenom}</p>
                     <p class="card-text">${user.email}</p>
-                    <p class="card-text">${user.type}</p>
+                    <c:forEach items="${user.roles}" var="role">
+                        <p class="card-text">${role.id}</p>
+                    </c:forEach>
                     <form action="${pageContext.request.contextPath}/remove-user" method="post">
                         <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Remove</button>
                     </form>

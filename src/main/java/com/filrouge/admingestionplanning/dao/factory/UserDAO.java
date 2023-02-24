@@ -80,7 +80,7 @@ public class UserDAO implements Dao<User> {
         EntityTransaction et = em.getTransaction();
         et.begin();
         try {
-            em.persist(user);
+            em.merge(user);
             et.commit();
         } catch (Exception e) {
             if (et.isActive()) {

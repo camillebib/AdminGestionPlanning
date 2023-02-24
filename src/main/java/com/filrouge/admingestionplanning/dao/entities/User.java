@@ -2,24 +2,37 @@ package com.filrouge.admingestionplanning.dao.entities;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name="user")
-public class User {
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
+@Table(name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        })
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int type; //type 0 = User, type 1 = Admin, type 2 = SuperAdmin
-    private String pseudo;
+    @Column(unique = false)
+    private String username;
+    @Column(unique = true)
     private String email;
     private String nom;
     private String prenom;
     private String password;
     private String img;
 
-    public User(int type, String pseudo, String email, String nom, String prenom, String password, String img) {
-        this.type = type;
-        this.pseudo = pseudo;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
+    public User(String username, String email, String nom, String prenom, String password, String img) {
+        this.username = username;
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
@@ -27,20 +40,27 @@ public class User {
         this.img = img;
     }
 
-    public User(Long id, int type, String pseudo, String email, String nom, String prenom, String password, String img) {
+    public User(Long id, String username, String email, String nom, String prenom, String password, String img, Set<Role> roles) {
         this.id = id;
-        this.type = type;
-        this.pseudo = pseudo;
+        this.username = username;
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
         this.password = password;
         this.img = img;
+        this.roles = roles;
     }
 
     public User(){}
 
-    public User(String name, String firstName, String email, String password, String image, String pseudo, String type) {
+    public User(String username, String email, String nom, String prenom, String password, String img, Set<Role> roles) {
+        this.username = username;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.img = img;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -51,20 +71,8 @@ public class User {
         this.id = id;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public String getPseudo() {
-        return pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -91,9 +99,7 @@ public class User {
         this.prenom = prenom;
     }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword(){return password;}
 
     public void setPassword(String password) {
         this.password = password;
@@ -105,5 +111,13 @@ public class User {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
