@@ -10,7 +10,7 @@
 <div class="container">
 
   <div class="row text-center">
-    <h1 class="h3 mb-3 font-weight-normal">Mise à jour de ${user.pseudo}</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Mise à jour de ${user.username}</h1>
   </div>
 
   <div class="row">
@@ -20,7 +20,7 @@
           <form action="${pageContext.request.contextPath}/update-user" method="post">
             <div class="mb-3">
               <label for="userPseudo">Pseudo</label>
-              <input id="userPseudo" type="text" name="userPseudo" class="form-control" required="required" value="${user.pseudo}">
+              <input id="userPseudo" type="text" name="userPseudo" class="form-control" required="required" value="${user.username}">
             </div>
             <div class="mb-3">
               <label for="userEmail">Email</label>
