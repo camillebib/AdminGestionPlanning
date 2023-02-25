@@ -61,13 +61,11 @@ public class UserDAO implements Dao<User> {
         List<User> users = new ArrayList<>();
         et.begin();
         try {
-            TypedQuery<User> usersQuery = em.createQuery("SELECT u FROM User u WHERE u.type != 2", User.class);
+            TypedQuery<User> usersQuery = em.createQuery("SELECT u FROM User u", User.class);
             users = usersQuery.getResultList();
             et.commit();
         } catch (Exception e) {
-            if (et.isActive()) {
-                et.rollback();
-            }
+            e.printStackTrace();
         } finally {
             em.close();
         }

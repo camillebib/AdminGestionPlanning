@@ -12,7 +12,7 @@
         <c:forEach items="${users}" var="user">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${user.pseudo}</h5>
+                    <h5 class="card-title">${user.username}</h5>
                     <p class="card-text">${user.nom}</p>
                     <p class="card-text">${user.prenom}</p>
                     <p class="card-text">${user.email}</p>

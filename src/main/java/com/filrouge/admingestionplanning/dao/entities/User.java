@@ -25,20 +25,20 @@ public class User {
     private String img;
 
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-//    public User(String username, String email, String nom, String prenom, String password, String img) {
-//        this.username = username;
-//        this.email = email;
-//        this.nom = nom;
-//        this.prenom = prenom;
-//        this.password = password;
-//        this.img = img;
-//    }
+    public User(String username, String email, String nom, String prenom, String password, String img) {
+        this.username = username;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.img = img;
+    }
 
     public User(Long id, String username, String email, String nom, String prenom, String password, String img, Set<Role> roles) {
         this.id = id;

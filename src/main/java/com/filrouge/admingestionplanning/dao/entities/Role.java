@@ -15,12 +15,6 @@ public class Role {
     @Column(length = 20)
     private String name;
 
-    @ManyToMany
-    @JoinTable( name = "user_roles",
-            joinColumns = @JoinColumn( name = "role_id" ),
-            inverseJoinColumns = @JoinColumn( name = "user_id" ) )
-    private Set<User> users = new HashSet<>();
-
     public Role(){
 
     }
@@ -41,7 +35,4 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {return users;}
-
-    public void setUsers(Set<User> users) {this.users = users;}
 }
