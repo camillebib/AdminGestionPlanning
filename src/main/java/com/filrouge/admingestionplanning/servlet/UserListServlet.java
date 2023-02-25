@@ -20,18 +20,24 @@ public class UserListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User connectedUser = (User) req.getSession().getAttribute("user");
-        if (connectedUser == null){
+        if (connectedUser == null) {
             resp.sendRedirect("login.jsp");
             return;
         }
         List<Long> listIdRoleUser = connectedUser.getRoles().stream().map(Role::getId).collect(Collectors.toList());
 
-        if (listIdRoleUser.contains(ERole.ROLE_USER.getId())){
+        if (listIdRoleUser.contains(ERole.ROLE_USER.getId())) {
             resp.sendRedirect("login.jsp");
             return;
         }
         UserDAO dao = new UserDAO();
-        List<User> userList = dao.getAll();
+        List<User> userList = null;
+
+        if (listIdRoleUser.contains(ERole.ROLE_ADMIN.getId())) {
+            userList = dao.getAll(2);
+        } else {
+            userList = dao.getAll(1);
+        }
 
         req.setAttribute("users", userList);
         req.getRequestDispatcher("/user-list.jsp").forward(req, resp);

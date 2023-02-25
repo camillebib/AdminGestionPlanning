@@ -55,13 +55,18 @@ public class UserDAO implements Dao<User> {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAll( int role) {
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction et = em.getTransaction();
         List<User> users = new ArrayList<>();
         et.begin();
         try {
-            TypedQuery<User> usersQuery = em.createQuery("SELECT u FROM User u", User.class);
+            TypedQuery<User> usersQuery = null;
+            if (role == 2) {
+                usersQuery = em.createQuery("SELECT u FROM User u", User.class);
+            } else {
+                usersQuery = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1", User.class);
+            }
             users = usersQuery.getResultList();
             et.commit();
         } catch (Exception e) {
