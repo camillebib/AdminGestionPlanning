@@ -128,15 +128,15 @@ public class UserDAO implements Dao<User> {
 
     }
 
-    public boolean validate(String pseudo, String password, HttpServletRequest request) {
+    public boolean validate(String email, String password, HttpServletRequest request) {
 
         Transaction transaction = null;
-        User user = null;
+        User user;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // get an user object
-            user = (User) session.createQuery("FROM User U WHERE U.pseudo = :pseudo").setParameter("pseudo", pseudo)
+            user = session.createQuery("FROM User U WHERE U.email = :email", User.class).setParameter("email", email)
                     .uniqueResult();
 
             if (user != null && user.getPassword().equals(password)) {
@@ -146,9 +146,6 @@ public class UserDAO implements Dao<User> {
             // commit transaction
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return false;

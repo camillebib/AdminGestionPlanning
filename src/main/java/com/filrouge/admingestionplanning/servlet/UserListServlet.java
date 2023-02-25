@@ -17,7 +17,7 @@ public class UserListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User connectedUser = (User) req.getSession().getAttribute("user");
-        if (connectedUser == null || connectedUser.getRoles() == null){
+        if (connectedUser == null || connectedUser.getRoles().contains(1L)){
             resp.sendRedirect("login.jsp");
             return;
         }
