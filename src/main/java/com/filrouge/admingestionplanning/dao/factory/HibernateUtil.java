@@ -1,5 +1,6 @@
 package com.filrouge.admingestionplanning.dao.factory;
 
+import com.filrouge.admingestionplanning.dao.entities.Role;
 import com.filrouge.admingestionplanning.dao.entities.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -20,7 +21,7 @@ public class HibernateUtil {
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/gestionPlanning?useSSL=false");
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/db_spring_backend_product?useSSL=false");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
@@ -33,6 +34,7 @@ public class HibernateUtil {
 
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(User.class);
+                configuration.addAnnotatedClass(Role.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

@@ -1,9 +1,11 @@
 package com.filrouge.admingestionplanning.dao.factory;
 
 import com.filrouge.admingestionplanning.dao.entities.User;
+import com.filrouge.admingestionplanning.security.BCrypt;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
+import jakarta.servlet.http.HttpServletRequest;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -33,19 +35,43 @@ public class UserDAO implements Dao<User> {
     }
 
     @Override
-    public List<User> getAll() {
+    public Optional<User> get(String pseudo) {
+        Optional<User> result = Optional.empty();
         EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction et = em.getTransaction();
-        List<User> users = new ArrayList<>();
         et.begin();
         try {
-            TypedQuery<User> usersQuery = em.createQuery("SELECT u FROM User u", User.class);
-            users = usersQuery.getResultList();
+            result = Optional.of(em.createQuery(
+                    "SELECT u from User u WHERE u.pseudo = :pseudo", User.class).
+                    setParameter("pseudo", pseudo).getSingleResult());
             et.commit();
         } catch (Exception e) {
             if (et.isActive()) {
                 et.rollback();
             }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
+
+    @Override
+    public List<User> getAll( int role) {
+        EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        List<User> users = new ArrayList<>();
+        et.begin();
+        try {
+            TypedQuery<User> usersQuery = null;
+            if (role == 2) {
+                usersQuery = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1 OR r.id = 2 ORDER BY u.username", User.class);
+            } else {
+                usersQuery = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1 ORDER BY u.username", User.class);
+            }
+            users = usersQuery.getResultList();
+            et.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             em.close();
         }
@@ -61,9 +87,7 @@ public class UserDAO implements Dao<User> {
             em.persist(user);
             et.commit();
         } catch (Exception e) {
-            if (et.isActive()) {
-                et.rollback();
-            }
+            e.printStackTrace();
         } finally {
             em.close();
         }
@@ -106,26 +130,27 @@ public class UserDAO implements Dao<User> {
 
     }
 
-    public boolean validate(String pseudo, String password) {
+    public boolean validate(String email, String password, HttpServletRequest request) {
 
         Transaction transaction = null;
-        User user = null;
+        User user;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // get an user object
-            user = (User) session.createQuery("FROM User U WHERE U.pseudo = :pseudo").setParameter("pseudo", pseudo)
+            user = session.createQuery("FROM User U WHERE U.email = :email", User.class).setParameter("email", email)
                     .uniqueResult();
 
-            if (user != null && user.getPassword().equals(password)) {
-                return true;
+            if (user != null) {
+                String hashed = user.getPassword();
+                if (BCrypt.checkpw(password, hashed)){
+                    request.getSession().setAttribute("user", user);
+                    return true;
+                }
             }
             // commit transaction
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return false;

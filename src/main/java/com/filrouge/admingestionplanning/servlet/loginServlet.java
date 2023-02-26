@@ -35,14 +35,15 @@ public class loginServlet extends HttpServlet {
 
     private void authenticate(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String pseudo = request.getParameter("pseudo");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if (loginDao.validate(pseudo, password)) {
+        if (loginDao.validate(email, password, request)) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");
             dispatcher.forward(request, response);
         } else {
-            throw new Exception("Login not successful..");
+            response.sendRedirect("unauthorized-access.jsp");
+            throw new Exception("Login not successful");
         }
     }
 }
