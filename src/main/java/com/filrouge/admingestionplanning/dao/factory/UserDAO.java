@@ -1,6 +1,7 @@
 package com.filrouge.admingestionplanning.dao.factory;
 
 import com.filrouge.admingestionplanning.dao.entities.User;
+import com.filrouge.admingestionplanning.security.BCrypt;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
@@ -140,9 +141,12 @@ public class UserDAO implements Dao<User> {
             user = session.createQuery("FROM User U WHERE U.email = :email", User.class).setParameter("email", email)
                     .uniqueResult();
 
-            if (user != null && user.getPassword().equals(password)) {
-                request.getSession().setAttribute("user", user);
-                return true;
+            if (user != null) {
+                String hashed = user.getPassword();
+                if (BCrypt.checkpw(password, hashed)){
+                    request.getSession().setAttribute("user", user);
+                    return true;
+                }
             }
             // commit transaction
             transaction.commit();

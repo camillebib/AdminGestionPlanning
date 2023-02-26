@@ -5,6 +5,7 @@ import com.filrouge.admingestionplanning.dao.entities.Role;
 import com.filrouge.admingestionplanning.dao.entities.User;
 import com.filrouge.admingestionplanning.dao.factory.Dao;
 import com.filrouge.admingestionplanning.dao.factory.UserDAO;
+import com.filrouge.admingestionplanning.security.BCrypt;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -43,6 +44,7 @@ public class UserUpdateServlet extends HttpServlet {
             roleSelect = Long.parseLong(req.getParameter("userType"));
         }
         String password = req.getParameter("userPassword");
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
         String img = req.getParameter("userImg");
 
         Set<Role> role = new HashSet<>();
@@ -50,7 +52,7 @@ public class UserUpdateServlet extends HttpServlet {
 
         try {
             Long id = Long.parseLong(idStr);
-            User user = new User(id, username, email, nom, prenom, password, img, role);
+            User user = new User(id, username, email, nom, prenom, hashed, img, role);
 
             UserDAO userDao = new UserDAO();
 
