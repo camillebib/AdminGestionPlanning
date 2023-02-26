@@ -49,7 +49,7 @@
             </c:if>
             <div class="mb-3">
               <label for="userPassword">Password</label>
-              <input id="userPassword" type="password" name="userPassword" class="form-control" required="required" value="${user.password}">
+              <input id="userPassword" type="password" name="userPassword" class="form-control" required="required">
             </div>
 
             <div class="mb-3 text-end">
