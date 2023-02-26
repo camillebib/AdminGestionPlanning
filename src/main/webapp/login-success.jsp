@@ -11,7 +11,7 @@
     function redirect() {
         location.href = "http://localhost:8080/AdminGestionPlanning/user-list";
     }
-    window.setTimeout("redirect()", 1000);
+    window.setTimeout("redirect()", 0);
 </script>
 </body>
 </html>
