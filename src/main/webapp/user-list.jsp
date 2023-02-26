@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Liste des utilisateurs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -20,10 +20,10 @@
                         <p class="card-text">Niveau d&rsquo;accès : ${role.id}</p>
                     </c:forEach>
                     <form action="${pageContext.request.contextPath}/user-details" method="post">
-                        <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Update</button>
+                        <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Modifier</button>
                     </form>
                     <form action="${pageContext.request.contextPath}/remove-user" method="post">
-                        <button type="submit" class="btn btn-danger" name="idUser" value="${user.id}">Remove</button>
+                        <button type="submit" class="btn btn-danger" name="idUser" value="${user.id}">Supprimer</button>
                     </form>
                 </div>
             </div>
