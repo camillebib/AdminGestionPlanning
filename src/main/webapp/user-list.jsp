@@ -12,11 +12,13 @@
         <c:forEach items="${users}" var="user">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">${user.pseudo}</h5>
+                    <h5 class="card-title">${user.username}</h5>
                     <p class="card-text">${user.nom}</p>
                     <p class="card-text">${user.prenom}</p>
                     <p class="card-text">${user.email}</p>
-                    <p class="card-text">${user.type}</p>
+                    <c:forEach items="${user.roles}" var="role">
+                        <p class="card-text">${role.id}</p>
+                    </c:forEach>
                     <form action="${pageContext.request.contextPath}/remove-user" method="post">
                         <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Remove</button>
                     </form>

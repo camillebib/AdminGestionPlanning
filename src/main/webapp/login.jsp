@@ -10,8 +10,8 @@
     <h1>Login Form</h1>
     <form action="<%=request.getContextPath()%>/login" method="post">
         <div class="form-group">
-            <label for="uname">User Name:</label>
-            <input type="text" class="form-control" id="pseudo" placeholder="User Name" name="pseudo" required>
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" required>
         </div>
         <div class="form-group">
             <label for="uname">Password:</label> <input type="password" class="form-control" id="password"
