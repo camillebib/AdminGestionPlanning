@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Sign-in</title>
+    <title>Inscription</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -10,7 +10,7 @@
 <div class="container">
 
   <div class="row text-center">
-    <h1 class="h3 mb-3 font-weight-normal">Sign-in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
   </div>
 
   <div class="row">
@@ -31,16 +31,16 @@
               <input id="userNom" type="text" name="userNom" class="form-control" required="required">
             </div>
             <div class="mb-3">
-              <label for="userPrenom">Prenom</label>
+              <label for="userPrenom">Prénom</label>
               <input id="userPrenom" type="text" name="userPrenom" class="form-control" required="required">
             </div>
             <div class="mb-3">
-              <label for="userPassword">Password</label>
+              <label for="userPassword">Mot de passe</label>
               <input id="userPassword" type="password" name="userPassword" class="form-control" required="required">
             </div>
 
             <div class="mb-3 text-end">
-              <button type="submit" class="btn btn-primary">Sign-in</button>
+              <button type="submit" class="btn btn-primary">S&rsquo;inscrire</button>
             </div>
           </form>
         </div>
