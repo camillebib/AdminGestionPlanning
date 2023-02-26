@@ -64,9 +64,9 @@ public class UserDAO implements Dao<User> {
         try {
             TypedQuery<User> usersQuery = null;
             if (role == 2) {
-                usersQuery = em.createQuery("SELECT u FROM User u", User.class);
+                usersQuery = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1 OR r.id = 2 ORDER BY u.username", User.class);
             } else {
-                usersQuery = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1", User.class);
+                usersQuery = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1 ORDER BY u.username", User.class);
             }
             users = usersQuery.getResultList();
             et.commit();

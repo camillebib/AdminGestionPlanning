@@ -10,7 +10,7 @@
 <div class="row justify-content-start">
     <c:forEach items="${users}" var="user">
         <div class="col mt-2 ms-2">
-            <div class="card" style="width: 16rem;">
+            <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${user.username}</h5>
                     <p class="card-text">Nom : ${user.nom}</p>
