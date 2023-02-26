@@ -38,13 +38,15 @@
               <label for="userPrenom">Prenom</label>
               <input id="userPrenom" type="text" name="userPrenom" class="form-control" required="required" value="${user.prenom}">
             </div>
-            <div class="mb-3">
-              <label for="userType">Type</label>
-              <select id="userType" type="number" name="userType" class="form-control" required="required">
-                  <option value="1">User</option>
-                  <option value="2">Admin</option>
-              </select>
-            </div>
+            <c:if test="${canAccess}">
+                <div class="mb-3">
+                  <label for="userType">Type</label>
+                  <select id="userType" type="number" name="userType" class="form-control" required="required">
+                      <option value="1">User</option>
+                      <option value="2">Admin</option>
+                  </select>
+                </div>
+            </c:if>
             <div class="mb-3">
               <label for="userPassword">Password</label>
               <input id="userPassword" type="password" name="userPassword" class="form-control" required="required" value="${user.password}">
