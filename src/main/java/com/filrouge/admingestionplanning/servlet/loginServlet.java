@@ -42,6 +42,7 @@ public class loginServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");
             dispatcher.forward(request, response);
         } else {
+            response.sendRedirect("unauthorized-access.jsp");
             throw new Exception("Login not successful");
         }
     }

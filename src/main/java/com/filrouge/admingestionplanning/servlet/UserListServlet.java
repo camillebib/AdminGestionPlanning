@@ -27,7 +27,7 @@ public class UserListServlet extends HttpServlet {
         List<Long> listIdRoleUser = connectedUser.getRoles().stream().map(Role::getId).collect(Collectors.toList());
 
         if (listIdRoleUser.contains(ERole.ROLE_USER.getId())) {
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("unauthorized-access.jsp");
             return;
         }
         UserDAO dao = new UserDAO();
