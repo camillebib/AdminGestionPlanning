@@ -7,28 +7,28 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<div class="row">
-    <div class="col-8 offset-2 mt-3">
-        <c:forEach items="${users}" var="user">
-            <div class="card" style="width: 18rem;">
+<div class="row justify-content-start">
+    <c:forEach items="${users}" var="user">
+        <div class="col mt-2 ms-2">
+            <div class="card" style="width: 16rem;">
                 <div class="card-body">
                     <h5 class="card-title">${user.username}</h5>
-                    <p class="card-text">${user.nom}</p>
-                    <p class="card-text">${user.prenom}</p>
-                    <p class="card-text">${user.email}</p>
+                    <p class="card-text">Nom : ${user.nom}</p>
+                    <p class="card-text">Prénom : ${user.prenom}</p>
+                    <p class="card-text">Email : ${user.email}</p>
                     <c:forEach items="${user.roles}" var="role">
-                        <p class="card-text">${role.id}</p>
+                        <p class="card-text">Niveau d&rsquo;accès : ${role.id}</p>
                     </c:forEach>
-                    <form action="${pageContext.request.contextPath}/remove-user" method="post">
-                        <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Remove</button>
-                    </form>
                     <form action="${pageContext.request.contextPath}/user-details" method="post">
                         <button type="submit" class="btn btn-primary" name="idUser" value="${user.id}">Update</button>
                     </form>
+                    <form action="${pageContext.request.contextPath}/remove-user" method="post">
+                        <button type="submit" class="btn btn-danger" name="idUser" value="${user.id}">Remove</button>
+                    </form>
                 </div>
-            </div><br>
-        </c:forEach>
-    </div>
+            </div>
+        </div>
+    </c:forEach>
 </div>
 </div>
 
