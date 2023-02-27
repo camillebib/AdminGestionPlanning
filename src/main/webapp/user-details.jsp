@@ -40,7 +40,7 @@
             </div>
             <c:if test="${canAccess}">
                 <div class="mb-3">
-                  <label for="userType">Type</label>
+                  <label for="userType">Rôle</label>
                   <select id="userType" type="number" name="userType" class="form-control" required="required">
                       <option value="1">User</option>
                       <option value="2">Admin</option>
@@ -49,7 +49,7 @@
             </c:if>
             <div class="mb-3">
               <label for="userPassword">Password</label>
-              <input id="userPassword" type="password" name="userPassword" class="form-control" required="required">
+              <input id="userPassword" type="password" name="userPassword" class="form-control">
             </div>
 
             <div class="mb-3 text-end">
