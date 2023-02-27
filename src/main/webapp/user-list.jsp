@@ -7,6 +7,18 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="login">Déconnexion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="row justify-content-start">
     <c:forEach items="${users}" var="user">
         <div class="col mt-2 ms-2">

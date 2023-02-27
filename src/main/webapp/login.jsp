@@ -6,6 +6,22 @@
     <title>Connexion</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="login">Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sign-in">Inscription</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container col-md-8 col-md-offset-3" style="overflow: auto">
     <h1>Connexion</h1>
     <form action="<%=request.getContextPath()%>/login" method="post">
