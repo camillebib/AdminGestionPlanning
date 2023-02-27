@@ -7,6 +7,18 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="login">Déconnexion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
 
   <div class="row text-center">
@@ -40,7 +52,7 @@
             </div>
             <c:if test="${canAccess}">
                 <div class="mb-3">
-                  <label for="userType">Type</label>
+                  <label for="userType">Rôle</label>
                   <select id="userType" type="number" name="userType" class="form-control" required="required">
                       <option value="1">User</option>
                       <option value="2">Admin</option>
@@ -49,7 +61,7 @@
             </c:if>
             <div class="mb-3">
               <label for="userPassword">Password</label>
-              <input id="userPassword" type="password" name="userPassword" class="form-control" required="required">
+              <input id="userPassword" type="password" name="userPassword" class="form-control">
             </div>
 
             <div class="mb-3 text-end">

@@ -35,23 +35,36 @@ public class UserUpdateServlet extends HttpServlet {
         boolean canAccess = listIdRoleUser.contains(ERole.ROLE_ADMIN.getId());
 
         String idStr = req.getParameter("idUser");
+        Long id = Long.parseLong(idStr);
+
         String username = req.getParameter("userPseudo");
         String email = req.getParameter("userEmail");
         String nom = req.getParameter("userNom");
         String prenom = req.getParameter("userPrenom");
+
         long roleSelect = 1L;
         if (canAccess){
             roleSelect = Long.parseLong(req.getParameter("userType"));
         }
+
         String password = req.getParameter("userPassword");
-        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+        String hashed = null;
+        if (password.isEmpty()){
+            UserDAO dao = new UserDAO();
+            Optional<User> userOptional = dao.get(id);
+            if (userOptional.isPresent()){
+                hashed = userOptional.get().getPassword();
+            }
+        }else {
+            hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+        }
+
         String img = req.getParameter("userImg");
 
         Set<Role> role = new HashSet<>();
         role.add(ERole.getRoleById(roleSelect));
 
         try {
-            Long id = Long.parseLong(idStr);
             User user = new User(id, username, email, nom, prenom, hashed, img, role);
 
             UserDAO userDao = new UserDAO();
